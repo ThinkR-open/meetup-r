@@ -1,0 +1,359 @@
+---
+title: "Code Lab Débutant"
+output: html_document
+---
+
+> Disclaimer : Il n'est (bien évidemment) pas attendu que vous compreniez / sachiez reproduire ce que vous trouverez ci-dessous à l'identique en sortant de ce codelab: surtout si vous n'avez jamais codé en R avant aujourd'hui. Il s'agit plutôt de découvrir, vous familiariser avec l'environnement, lancer vos premières commandes. Si vous avez des questions, n'hésitez pas à les poser ! 
+
+> Bien sûr, de nombreux concepts de R sont mis de côté / simplifiés. Nous n'avons qu'une heure devant nous, donc nous concentrerons sur la pratique, plutôt que sur la théorie. 
+
+## Introduction 
+
+Pour éxécuter les commandes, plusieurs solutions :
+
+- les copier coller dans la console 
+- les retaper dans la console (pour les plus courageux)
+- séléctionner le code à éxécuter, et le lancer avec le bouton "Run > Run selected lines", en haut à droite de cette fenêtre
+- utiliser le raccourci clavier CTRL + Entrée (Windows et Linux) ou Cmd + Entrée (Mac) lorsque vous êtes sur une ligne
+
+## Notion de variables
+
+Dans R, les objets sont appelés variables. Ce sont ces objets qui contiennent les valeurs (résultats de calcul, tables, ...). Tous les objets doivent avoir un nom. 
+
+Pour créer un objet, on lui donne un nom, auquel on assigne une valeur avec `<-` 
+
+Par exemple, si l'on tape "12" dans la console, le résultat va s'afficher, mais il ne sera pas stocké : 
+
+```{r}
+12
+12 + 13
+# Pour assigner 
+a <- 12 
+```
+
+## Opérations classique 
+
+On peut réaliser les opérations classiques avec R : 
+
+|X.      |addition       |
+|:-------|:--------------|
+|-       |subtraction    |
+|*       |multiplication |
+|/       |division       |
+|^ or ** |exponentiation |
+
+```{r}
+# Diviser 5 par 3 
+
+# Multiplier 4 par 12 
+
+# Créer une variable y qui contiendra le résultat de 3 fois 17 
+```
+
+et les tests classiques : 
+
+|Operator |Description              |
+|:--------|:------------------------|
+|>        |greater than             |
+|>=       |greater than or equal to |
+|==       |exactly equal to         |
+|!=       |not equal to             |
+
+On peut bien sûr comparer les valeurs contenues dans deux objets. 
+
+Par exemple, 139 moins 12 est il plus grand que 187 moins 45 ? 
+
+```{r}
+b <- 139 - 12
+c <- 187 - 45
+b > c 
+```
+
+Tester si : 
+
+```{r}
+# 4 fois 32 est il plus grand que 6 * 17 
+
+# 3 fois 43 est il équivalent à 4 * 31 ? 
+
+# 91 au carré est il supérieur à 1 million ?
+```
+
+## Les types 
+
+En R, on peut travailler avec des chiffres, des chaines de caractère ou des booléens (et d'autres types, mais on en reparler une autre fois ;) ). 
+
+Tous peuvent être contenus dans des variables. 
+
+```{r}
+# Créer une variable q qui contient la chaine de caractères R c'est super
+
+# Créer une variable w qui contient oui oui, c'est super
+
+# Que se passe-t-il si on additionne q et w ?
+```
+
+```{r}
+class(b)
+```
+
+## Les objets
+
+Nous verrons aujourd'hui trois objets : les vecteurs, les listes, et les data.frames
+
+## Vecteurs 
+
+R est un langage vectoriel : 
+
+```{r}
+a <- c(1,2,3,4)
+b <- c(4,5,6,7)
+a + b 
+```
+
+On peut faire référence à un élément du vecteur avec [index] : 
+
+```{r}
+a[1]
+```
+
+```{r}
+mon_vec <- c(1,4,6,12)
+# Retirer le quatrième élément du vecteur
+
+# Multiplier le vecteur par deux 
+
+```
+
+
+### Les listes 
+
+Les listes sont une collection d'objets hétérogènes 
+
+```{r}
+ma_liste <- list(1, "a", c(1,2,3,4))
+ma_liste
+```
+
+On va chercher un élément de la liste avec `[[index]]`
+
+```{r}
+ma_liste[[1]]
+```
+
+```{r}
+ma_nouvelle_liste <- list(1, "a", c(1,2,3,4), "hello", "colin")
+# Retirer le 5ème élément de cette nouvelle liste
+
+```
+
+
+### Les data.frame 
+
+Les data.frame sont des tableaux, c'est-à-dire des objets en colonnes et lignes : 
+
+```{r}
+df <- data.frame(a = c("a","b","c"), 
+                 b = c(4, 5, 6), 
+                 c = c(6, 7,8))
+df
+```
+
+On va chercher une colonne avec `df$nom_de_la_colonne`
+
+```{r}
+df$b
+```
+
+On peut aussi faire référence aux lignes et colonnes avec df[ligne, colonne] :
+
+```{r}
+df[1,2]
+```
+
+Renvoie l'objet de la ligne 1, quatrième colonne. 
+
+Si on veut toute la ligne, on va laisser l'espace colonne vide 
+
+```{r}
+df[1, ]
+```
+
+
+```{r}
+# Faire l'addition de la colonne b et c 
+# Avant de lancer le code, à votre avis, quel sera le résultat ? 
+```
+
+## Fonctions 
+
+> En R, tout ce qui existe est un objet, et tout ce qui survient est lié à une fonction 
+
+Une fonction est une "recette" qui va appliquer des transformation à un objet. 
+
+Par exemple : 
+
+```{r}
+sqrt(42)
+a <- c(1,2,3,4)
+sum(a)
+```
+
+### Exercice : 
+
+Créer le dataframe suivant : 
+
+|sex   | age|
+|:-----|---:|
+|homme |  19|
+|femme |  19|
+|homme |  20|
+|femme |  25|
+|femme |  20|
+
+
+```{r}
+
+```
+
+Quel est l'age moyen ? 
+
+```{r}
+
+```
+
+## Structures conditionnelles
+
+Comme tous les langages de programmation, R possède des structures conditionnelles.
+
+### If
+
+```{r}
+a <- 12 
+if (a == 12){
+  print("Douze")
+} else {
+  print("Pas douze")
+}
+```
+
+> Créer un objet b qui contiendra 15. 
+
+> Créer une condition if qui, si b est plus petit que 10, imprime "moins que 10", sinon "plus que 10"
+
+```{r}
+
+```
+
+## Aller plus loin : les packages 
+
+Les packages sont des modules supplémentaires qui contiennent des fonctions et / ou des données. On les charge avec `library(nom_du_package)`. 
+
+On les installe avec `install.packages("nom_du_package")`.
+
+```{r}
+install.packages("dplyr")
+library(dplyr)
+```
+
+## Lire des données 
+
+```{r}
+moncsv <- read.csv("chemin/vers/mon.csv")
+```
+
+On peut lire beaucoup de type de données. Le format universel est le csv. Pour les csv français, on va utiliser la fonction read_csv2. 
+
+> Lire le csv "titanic_full", et le stocker dans un objet titanic
+
+```{r}
+
+```
+
+
+## Un apercu des données 
+
+Quelques fonctions qui permettent d'avoir un aperçu des données : `head`, `summary`, `str`. 
+
+```{r}
+summary(df)
+```
+
+Donner le summary, head et str de titanic. 
+
+## Manipulation d'un jeu de données avec dplyr 
+
+dplyr est un package de manipulation de données tabulaire (en gros, de dataframe) 
+
+Le premier argument des fonctions de dplyr est le data frame, puis les colonnes sur lesquelles on va effectuer l'opération. 
+
+### Comptage
+
+la fonction count(df, colonne) compte le nombre d'occurrences de chaque modalités dans la colonne Sex : 
+
+```{r}
+count(titanic, Sex)
+```
+
+```{r}
+# Compter les modalités de la colonne PClass
+
+```
+
+### Filtre
+
+La fonction filter filtre la colonne en fonction d'une condition : 
+
+```{r}
+filter(titanic, Sex == "female")
+```
+
+```{r}
+# Filter sur les modalités de la colonne de classe pour ne garder que les premières classes
+
+```
+
+### Tri
+
+arrange tri le tableau en fonctio d'une colonne.
+
+```{r}
+arrange(titanic, Age)
+```
+
+```{r}
+# Trier en fonction de Survived
+
+```
+
+
+### Résumer 
+
+summarise (ou summarize) applique une fonction sur une colonne et retourne le résultat : 
+
+```{r}
+summarise(titanic, max(Age))
+```
+
+```{r}
+# Quel est l'age maximum des passagers ? 
+
+```
+
+
+## Visualisation de données avec ggplot2 
+
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data = titanic) + 
+  aes(x = Age) + 
+  geom_histogram()
+```
+
+```{r}
+ggplot(data = titanic) + 
+  aes(x = Sex, y = Age) + 
+  geom_boxplot()
+```
+
